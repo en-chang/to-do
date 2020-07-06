@@ -1,4 +1,5 @@
 from datetime import datetime
+import random
 
 # All activities
 activities = [
@@ -36,6 +37,43 @@ data = {
     'Saturday': sat
 }
 
+def warmUpKeyPicker(warmUp):
+    if warmUp == 'Chords':
+        print(f'        {warmUp}:')
+        print(f'            {randomKey()} Major')
+        print(f'            Progression {random.randint(1, 44)}')
+    else:
+        print(f'        {warmUp}:')
+        print(f'            {randomKey()} Major')
+        print(f'            {randomKey()} Minor')
+
+def randomKey():
+    keys = [
+        'Ab',
+        'A',
+        'Bb',
+        'B',
+        'C',
+        'Db',
+        'D',
+        'Eb',
+        'E',
+        'F',
+        'F#',
+        'G'
+    ]
+    randomKey = random.choice(keys)
+    return randomKey
+
+def pianoWarmUpGenerator():
+    warmUpKeyPicker('Scales')
+    warmUpKeyPicker('Arpeggios')
+    warmUpKeyPicker('Chords')
+    fingering = ['1 2 3', '3 4 5']
+    randomFingering = random.choice(fingering)
+    print('        Chromatics:')
+    print(f'            {randomFingering}')
+
 def main():
     today = datetime.today().strftime('%A')
     tasks = data[today]
@@ -44,6 +82,8 @@ def main():
     print('\nHello Master!\n\nHere is your list of tasks to complete today:')
     for task in tasks:
         print('   ', task)
+        if task == 'Piano practice':
+            pianoWarmUpGenerator()
     print()
 
     print('Enter "y" or "n" for the tasks you completed.')
