@@ -15,8 +15,7 @@ activities = [
     'Writing',
     'Dinner',
     'Coding',
-    'Recording',
-    'Walking'
+    'Recording'
 ]
 
 # Add activities to everyday
